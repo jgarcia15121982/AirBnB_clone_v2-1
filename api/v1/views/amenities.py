@@ -53,7 +53,7 @@ def amenities_create():
                  strict_slashes=False)
 def amenities_update(amenity_id):
     """PUT"""
-    found = storage.get(Amenity, amenities_id)
+    found = storage.get(Amenity, amenity_id)
     if not found:
         abort(404)
     else:
