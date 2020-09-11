@@ -7,7 +7,7 @@ from models import storage
 
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
-def states():
+def user():
     """GET"""
     return jsonify([n.to_dict() for n in storage.all(User).values()])
 
