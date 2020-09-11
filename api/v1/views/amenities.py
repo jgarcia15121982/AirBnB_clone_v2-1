@@ -11,6 +11,7 @@ def amenities():
     """GET"""
     return jsonify([n.to_dict() for n in storage.all(Amenity).values()])
 
+
 @app_views.route('/amenities/<amenity_id>', methods=['GET'],
                  strict_slashes=False)
 def amenities_id(amenity_id):
@@ -20,6 +21,7 @@ def amenities_id(amenity_id):
         abort(404)
     else:
         return jsonify(found.to_dict())
+
 
 @app_views.route('/amenities/<amenity_id>', methods=['DELETE'],
                  strict_slashes=False)
@@ -46,6 +48,7 @@ def amenities_create():
     amenities.save()
     return jsonify(amenities.to_dict()), 201
 
+
 @app_views.route('/amenities/<amenity_id>', methods=['PUT'],
                  strict_slashes=False)
 def amenities_update(amenity_id):
@@ -61,4 +64,3 @@ def amenities_update(amenity_id):
             key in invalid_keys or setattr(found, key, value)
         found.save()
     return jsonify(found.to_dict()), 200
-
