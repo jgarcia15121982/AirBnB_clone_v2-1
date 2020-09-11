@@ -50,6 +50,7 @@ def user_create():
     user.save()
     return jsonify(user.to_dict()), 201
 
+
 @app_views.route('/users/<user_id>', methods=['PUT'],
                  strict_slashes=False)
 def user_update(user_id):
